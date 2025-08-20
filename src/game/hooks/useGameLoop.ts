@@ -10,10 +10,11 @@ import { useGameStore } from "../store/useGameStore";
  */
 export function useGameLoop(size = 20, speed = 150): void {
   const started = useGameStore((s) => s.started);
+  const gameOver = useGameStore((s) => s.gameOver);
 
   useEffect(() => {
-    // Don't run game loop if game hasn't started
-    if (!started) {
+    // Don't run game loop if game hasn't started or is already over
+    if (!started || gameOver !== "NONE") {
       return;
     }
 
@@ -32,6 +33,11 @@ export function useGameLoop(size = 20, speed = 150): void {
 
     const interval = setInterval(() => {
       const state = useGameStore.getState();
+
+      // Stop the game loop if game is over
+      if (state.gameOver !== "NONE") {
+        return;
+      }
 
       // Promote buffered direction to active direction
       // This allows for smooth direction changes without missing inputs
@@ -79,6 +85,8 @@ export function useGameLoop(size = 20, speed = 150): void {
             const next = s + 3;
             if (next >= 30) {
               useGameStore.getState().setGameOver("WIN"); // Win condition
+              // Stop the game immediately when win condition is met
+              return next;
             }
             return next;
           });
@@ -93,5 +101,5 @@ export function useGameLoop(size = 20, speed = 150): void {
     }, speed);
 
     return () => clearInterval(interval);
-  }, [started, size, speed]);
+  }, [started, gameOver, size, speed]);
 }
