@@ -1,41 +1,31 @@
-import { useState } from "react";
 import type { ReactElement } from "react";
 
 import Board from "./components/Board";
+import GameOverModal from "./components/GameOverModal";
 import LandingScreen from "./components/LandingScreen";
 import Sidebar from "./components/Sidebar";
+import { useGameLoop } from "./hooks/useGameLoop";
+import { useKeyboard } from "./hooks/useKeyboard";
+import { useGameStore } from "./store/useGameStore";
 
 export default function Game(): ReactElement {
-  const [playerName, setPlayerName] = useState<string>("");
-  const [started, setStarted] = useState(false);
-  const [score, setScore] = useState(0);
+  const started = useGameStore((s) => s.started);
+
+  useGameLoop(20, 150);
+
+  useKeyboard();
 
   if (!started) {
-    return (
-      <LandingScreen
-        playerName={playerName}
-        setPlayerName={setPlayerName}
-        onStart={() => setStarted(true)}
-      />
-    );
+    return <LandingScreen />;
   }
 
   return (
-    <div className="flex h-screen w-screen bg-slate-900 text-white">
-      <Sidebar
-        playerName={playerName}
-        score={score}
-        onRestart={() => setScore(0)}
-        onQuit={() => {
-          setStarted(false);
-          setScore(0);
-          setPlayerName("");
-        }}
-      />
-
+    <div className="flex h-screen w-screen bg-slate-900 text-white relative">
+      <Sidebar />
       <div className="flex flex-1 items-center justify-center">
-        <Board size={20} />
+        <Board />
       </div>
+      <GameOverModal />
     </div>
   );
 }

@@ -1,16 +1,12 @@
 import type { ReactElement } from "react";
 
-interface LandingScreenProps {
-  playerName: string;
-  setPlayerName: (name: string) => void;
-  onStart: () => void;
-}
+import { useGameStore } from "../store/useGameStore";
 
-export default function LandingScreen({
-  playerName,
-  setPlayerName,
-  onStart,
-}: LandingScreenProps): ReactElement {
+export default function LandingScreen(): ReactElement {
+  const playerName = useGameStore((s) => s.playerName);
+  const setPlayerName = useGameStore((s) => s.setPlayerName);
+  const setStarted = useGameStore((s) => s.setStarted);
+
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       <div className="text-center space-y-6 w-full max-w-sm">
@@ -27,7 +23,7 @@ export default function LandingScreen({
         />
 
         <button
-          onClick={onStart}
+          onClick={() => setStarted(true)}
           disabled={!playerName.trim()}
           className="w-full rounded-md bg-lime-500 px-6 py-2 text-lg font-bold text-black hover:bg-lime-400 transition disabled:opacity-50 disabled:cursor-not-allowed"
         >
