@@ -5,12 +5,14 @@ import { useGameStore } from "../store/useGameStore";
 /**
  * Game loop hook that handles snake movement, collision detection, and food spawning
  *
- * @param size - The size of the game board (e.g., 20 for a 20x20 grid)
  * @param speed - The interval in milliseconds between game ticks (lower = faster)
+ *
+ * Note: Board size is now retrieved from the game store (boardSize) instead of being passed as a parameter
  */
-export function useGameLoop(size = 20, speed = 150): void {
+export function useGameLoop(speed = 150): void {
   const started = useGameStore((s) => s.started);
   const gameOver = useGameStore((s) => s.gameOver);
+  const size = useGameStore((s) => s.boardSize);
 
   useEffect(() => {
     // Don't run game loop if game hasn't started or is already over

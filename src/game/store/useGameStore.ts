@@ -13,6 +13,7 @@ interface GameState {
   direction: Direction;
   nextDirection: Direction;
   gameOver: GameOver;
+  boardSize: number;
 
   setPlayerName: (name: string) => void;
   setStarted: (started: boolean) => void;
@@ -23,6 +24,7 @@ interface GameState {
   setDirection: (dir: Direction) => void;
   setNextDirection: (dir: Direction) => void;
   setGameOver: (status: GameOver) => void;
+  setBoardSize: (size: number) => void;
   resetGame: () => void;
   quitGame: () => void;
 }
@@ -37,6 +39,7 @@ export const useGameStore = create<GameState>((set) => ({
   direction: "RIGHT",
   nextDirection: "RIGHT",
   gameOver: "NONE",
+  boardSize: 20,
 
   setPlayerName: (playerName) => set({ playerName }),
   setStarted: (started) => set({ started }),
@@ -57,6 +60,7 @@ export const useGameStore = create<GameState>((set) => ({
   setDirection: (direction) => set({ direction }),
   setNextDirection: (nextDirection) => set({ nextDirection }),
   setGameOver: (gameOver) => set({ gameOver }),
+  setBoardSize: (boardSize) => set({ boardSize }),
 
   resetGame: () =>
     set((state) => ({
@@ -64,7 +68,7 @@ export const useGameStore = create<GameState>((set) => ({
       direction: "RIGHT",
       nextDirection: "RIGHT",
       score: 0,
-      food: Math.floor(Math.random() * 20 * 20),
+      food: Math.floor(Math.random() * state.boardSize * state.boardSize),
       gameOver: "NONE",
       gamesPlayed: state.gamesPlayed + 1,
     })),
@@ -75,5 +79,6 @@ export const useGameStore = create<GameState>((set) => ({
       playerName: "",
       score: 0,
       gameOver: "NONE",
+      boardSize: 20,
     })),
 }));

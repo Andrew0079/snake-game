@@ -6,6 +6,8 @@ export default function LandingScreen(): ReactElement {
   const playerName = useGameStore((s) => s.playerName);
   const setPlayerName = useGameStore((s) => s.setPlayerName);
   const setStarted = useGameStore((s) => s.setStarted);
+  const boardSize = useGameStore((s) => s.boardSize);
+  const setBoardSize = useGameStore((s) => s.setBoardSize);
 
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
@@ -21,6 +23,30 @@ export default function LandingScreen(): ReactElement {
           value={playerName}
           onChange={(e) => setPlayerName(e.target.value)}
         />
+
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-gray-300">
+            Board Size: {boardSize}×{boardSize}
+          </label>
+          <div className="flex items-center space-x-2">
+            <span className="text-xs text-gray-400">10</span>
+            <input
+              type="range"
+              min="10"
+              max="30"
+              step="5"
+              value={boardSize}
+              onChange={(e) => setBoardSize(Number(e.target.value))}
+              className="flex-1 h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer slider"
+            />
+            <span className="text-xs text-gray-400">30</span>
+          </div>
+          <div className="flex justify-between text-xs text-gray-500">
+            <span>Small</span>
+            <span>Medium</span>
+            <span>Large</span>
+          </div>
+        </div>
 
         <button
           onClick={() => setStarted(true)}

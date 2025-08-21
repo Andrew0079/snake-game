@@ -19,12 +19,14 @@ A modern React-based Snake game built with Vite, TypeScript, and Tailwind CSS.
 ## Installation
 
 1. Clone the repository:
+
 ```bash
 git clone <repository-url>
 cd snake-game
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
@@ -32,17 +34,21 @@ npm install
 ## Development
 
 ### Start Development Server
+
 ```bash
 npm run dev
 ```
+
 The application will be available at `http://localhost:5173`
 
 ### Build for Production
+
 ```bash
 npm run build
 ```
 
 ### Preview Production Build
+
 ```bash
 npm run preview
 ```
@@ -50,14 +56,17 @@ npm run preview
 ## Code Quality Tools
 
 ### Linting
+
 - **Check for issues**: `npm run lint`
 - **Auto-fix issues**: `npm run lint:fix`
 
 ### Code Formatting
+
 - **Check formatting**: `npm run format`
 - **Auto-format code**: `npm run format:fix`
 
 ### Type Checking
+
 - **Type check**: `npm run type-check`
 - **Type check (watch mode)**: `npm run type-check:watch`
 
@@ -69,11 +78,13 @@ This project uses Husky to enforce code quality standards:
 - **Pre-push**: Runs TypeScript type checking
 
 ### What happens on commit:
+
 - ESLint fixes auto-fixable issues
 - Prettier formats code
 - Only staged files are processed
 
 ### What happens on push:
+
 - TypeScript type checking ensures no type errors
 
 ## Project Structure
@@ -101,6 +112,7 @@ snake-game/
 ## Configuration Details
 
 ### ESLint Rules
+
 - **TypeScript strictness**: No `any` types, explicit module boundaries
 - **Import organization**: Enforced import order with React imports first
 - **Unused variables**: Error on unused vars (except `_` prefixed)
@@ -108,27 +120,32 @@ snake-game/
 - **Prettier integration**: Disables conflicting stylistic rules
 
 ### TypeScript Configuration
+
 - **Strict mode**: Enabled with all strict checks
 - **Target**: ES2022
 - **Module resolution**: Bundler mode
 - **JSX**: React JSX transform
 
 ### Tailwind CSS
+
 - **Version**: 4.1.12 (latest)
 - **Prettier plugin**: Automatic class sorting
 
 ## Available Scripts
 
-| Script | Description |
-|--------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview production build |
-| `npm run lint` | Check for linting issues |
-| `npm run lint:fix` | Fix linting issues automatically |
-| `npm run format` | Check code formatting |
-| `npm run format:fix` | Format code automatically |
-| `npm run type-check` | Run TypeScript type checking |
+| Script                     | Description                                |
+| -------------------------- | ------------------------------------------ |
+| `npm run dev`              | Start development server                   |
+| `npm run build`            | Build for production                       |
+| `npm run preview`          | Preview production build                   |
+| `npm run test`             | Run tests in watch mode                    |
+| `npm run test:run`         | Run tests once                             |
+| `npm run test:coverage`    | Run tests with coverage report             |
+| `npm run lint`             | Check for linting issues                   |
+| `npm run lint:fix`         | Fix linting issues automatically           |
+| `npm run format`           | Check code formatting                      |
+| `npm run format:fix`       | Format code automatically                  |
+| `npm run type-check`       | Run TypeScript type checking               |
 | `npm run type-check:watch` | Run TypeScript type checking in watch mode |
 
 ## Next Steps

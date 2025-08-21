@@ -11,7 +11,7 @@ import { useGameStore } from "./store/useGameStore";
 export default function Game(): ReactElement {
   const started = useGameStore((s) => s.started);
 
-  useGameLoop(20, 150);
+  useGameLoop(150);
 
   useKeyboard();
 

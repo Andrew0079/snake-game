@@ -5,7 +5,7 @@ import { useGameStore } from "../store/useGameStore";
 export default function Board(): ReactElement {
   const snake = useGameStore((s) => s.snake);
   const food = useGameStore((s) => s.food);
-  const size = 20;
+  const size = useGameStore((s) => s.boardSize);
   const cells = Array.from({ length: size * size });
 
   return (
