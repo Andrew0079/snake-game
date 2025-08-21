@@ -11,7 +11,7 @@ function Sidebar(): ReactElement {
   console.log("Sidebar rendered");
 
   return (
-    <div className="w-72 bg-slate-800 p-6 flex flex-col justify-between shadow-lg">
+    <div className="w-72 bg-slate-800 p-6 flex-col justify-between shadow-lg hidden md:flex">
       <div>
         <h2 className="text-3xl font-bold text-lime-400 mb-6 drop-shadow">
           🐍 Sneaky

@@ -49,6 +49,10 @@ describe("Board Component", () => {
       if (selector.toString().includes("snake")) return [2, 1, 0];
       if (selector.toString().includes("food")) return 50;
       if (selector.toString().includes("boardSize")) return 20;
+      if (selector.toString().includes("score")) return 0;
+      if (selector.toString().includes("playerName")) return "Player";
+      if (selector.toString().includes("resetGame")) return vi.fn();
+      if (selector.toString().includes("setStarted")) return vi.fn();
       return undefined;
     });
 
@@ -65,6 +69,10 @@ describe("Board Component", () => {
       if (selector.toString().includes("snake")) return [2, 1, 0];
       if (selector.toString().includes("food")) return 50;
       if (selector.toString().includes("boardSize")) return 15;
+      if (selector.toString().includes("score")) return 0;
+      if (selector.toString().includes("playerName")) return "Player";
+      if (selector.toString().includes("resetGame")) return vi.fn();
+      if (selector.toString().includes("setStarted")) return vi.fn();
       return undefined;
     });
 
@@ -91,6 +99,10 @@ describe("Board Component", () => {
       if (selector.toString().includes("snake")) return snake;
       if (selector.toString().includes("food")) return 50;
       if (selector.toString().includes("boardSize")) return 20;
+      if (selector.toString().includes("score")) return 0;
+      if (selector.toString().includes("playerName")) return "Player";
+      if (selector.toString().includes("resetGame")) return vi.fn();
+      if (selector.toString().includes("setStarted")) return vi.fn();
       return undefined;
     });
 
@@ -125,6 +137,10 @@ describe("Board Component", () => {
       if (selector.toString().includes("snake")) return snake;
       if (selector.toString().includes("food")) return 50;
       if (selector.toString().includes("boardSize")) return 20;
+      if (selector.toString().includes("score")) return 0;
+      if (selector.toString().includes("playerName")) return "Player";
+      if (selector.toString().includes("resetGame")) return vi.fn();
+      if (selector.toString().includes("setStarted")) return vi.fn();
       return undefined;
     });
 
@@ -152,6 +168,10 @@ describe("Board Component", () => {
       if (selector.toString().includes("snake")) return [2, 1, 0];
       if (selector.toString().includes("food")) return foodPosition;
       if (selector.toString().includes("boardSize")) return 20;
+      if (selector.toString().includes("score")) return 0;
+      if (selector.toString().includes("playerName")) return "Player";
+      if (selector.toString().includes("resetGame")) return vi.fn();
+      if (selector.toString().includes("setStarted")) return vi.fn();
       return undefined;
     });
 
@@ -177,6 +197,10 @@ describe("Board Component", () => {
       if (selector.toString().includes("snake")) return [2, 1, 0];
       if (selector.toString().includes("food")) return 50;
       if (selector.toString().includes("boardSize")) return 20;
+      if (selector.toString().includes("score")) return 0;
+      if (selector.toString().includes("playerName")) return "Player";
+      if (selector.toString().includes("resetGame")) return vi.fn();
+      if (selector.toString().includes("setStarted")) return vi.fn();
       return undefined;
     });
 
@@ -202,6 +226,10 @@ describe("Board Component", () => {
       if (selector.toString().includes("snake")) return []; // Empty snake
       if (selector.toString().includes("food")) return 50;
       if (selector.toString().includes("boardSize")) return 20;
+      if (selector.toString().includes("score")) return 0;
+      if (selector.toString().includes("playerName")) return "Player";
+      if (selector.toString().includes("resetGame")) return vi.fn();
+      if (selector.toString().includes("setStarted")) return vi.fn();
       return undefined;
     });
 
@@ -231,6 +259,10 @@ describe("Board Component", () => {
       if (selector.toString().includes("snake")) return snake;
       if (selector.toString().includes("food")) return food;
       if (selector.toString().includes("boardSize")) return 20;
+      if (selector.toString().includes("score")) return 0;
+      if (selector.toString().includes("playerName")) return "Player";
+      if (selector.toString().includes("resetGame")) return vi.fn();
+      if (selector.toString().includes("setStarted")) return vi.fn();
       return undefined;
     });
 
@@ -257,6 +289,10 @@ describe("Board Component", () => {
       if (selector.toString().includes("snake")) return [2, 1, 0];
       if (selector.toString().includes("food")) return 50;
       if (selector.toString().includes("boardSize")) return 20;
+      if (selector.toString().includes("score")) return 0;
+      if (selector.toString().includes("playerName")) return "Player";
+      if (selector.toString().includes("resetGame")) return vi.fn();
+      if (selector.toString().includes("setStarted")) return vi.fn();
       return undefined;
     });
 
@@ -276,6 +312,10 @@ describe("Board Component", () => {
       if (selector.toString().includes("snake")) return [2, 1, 0];
       if (selector.toString().includes("food")) return 50;
       if (selector.toString().includes("boardSize")) return 25;
+      if (selector.toString().includes("score")) return 0;
+      if (selector.toString().includes("playerName")) return "Player";
+      if (selector.toString().includes("resetGame")) return vi.fn();
+      if (selector.toString().includes("setStarted")) return vi.fn();
       return undefined;
     });
 
@@ -306,6 +346,10 @@ describe("Board Component", () => {
       if (selector.toString().includes("snake")) return [2, 1, 0];
       if (selector.toString().includes("food")) return 50;
       if (selector.toString().includes("boardSize")) return 20;
+      if (selector.toString().includes("score")) return 0;
+      if (selector.toString().includes("playerName")) return "Player";
+      if (selector.toString().includes("resetGame")) return vi.fn();
+      if (selector.toString().includes("setStarted")) return vi.fn();
       return undefined;
     });
 
@@ -316,7 +360,6 @@ describe("Board Component", () => {
     expect(grid).toHaveClass(
       "aspect-square", // Maintains 1:1 aspect ratio
       "w-full", // Full width of container
-      "h-full", // Full height of container
       "max-w-[90vmin]", // Max width of 90% of viewport minimum
       "max-h-[90vmin]", // Max height of 90% of viewport minimum
     );
